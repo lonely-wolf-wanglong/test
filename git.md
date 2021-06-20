@@ -86,3 +86,4 @@
 - git log命令只能查看以当前状态为终点的历史日志。所以要使用git reflog命令，查看当前仓库的操作日志。在日志中找到回溯历史之前的哈希值，通过git reset --hard命令恢复到回溯历史前的状态。
 - git commit --amend:修改上一次提交信息
 - git rebase -i:压缩历史
+- git pull:获取最新的远程仓库分支
