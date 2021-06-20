@@ -67,3 +67,22 @@
 
 - git diff:可以查看工作树，暂存区，最新提交之间的差别。git diff HEAD:可以查看与最新提交有什么区别。
 
+### 分支操作
+
+- 在进行多个并行作业时，我们会用到分支。在这类并行开发中，往往同时存在多个最新代码状态。其中master分支是git默认创建的分支。
+- git branch:可以将分支名列表显示。
+- git checkout -b命令可以创建新的分支
+  - git checkout -b feature-A（git branch feature-A/git checkout feature-A）:创建名为feature-A的分支,并将当前分支切换为feature-A分支。
+- feature-A分支的更改不会影响到master分支，这个是创建分支的优点。
+- git checkout -/git checkout 分支名:可以切换分支
+- 特性分支：是集中实现单一特性，除此之外不进任何作业的分支。在日常开发过程中，往往会创建多个特性分支，同时在此之外再保留一个随时科发布软件的稳定分支。稳定分支通常由master分支担当。
+- 主干分支：是特性分支的原点，也是合并的终点。通常会将master分支作为主干分支。主干分支也有多个，用来发布多个版本。
+- git merge --no-ff feature-A:用于进行分支合并。
+- git log --graph:以图表的形式查看分支。
+
+### 更改提交的操作
+
+- git reset --hard 哈希值:可以让仓库的HEAD,暂存区当前工作树回溯到指定的状态。只要提供目标时间点的哈希值，就可以完全恢复至该时间点的状态。
+- git log命令只能查看以当前状态为终点的历史日志。所以要使用git reflog命令，查看当前仓库的操作日志。在日志中找到回溯历史之前的哈希值，通过git reset --hard命令恢复到回溯历史前的状态。
+- git commit --amend:修改上一次提交信息
+- git rebase -i:压缩历史
